@@ -1,0 +1,12 @@
+type Query {
+    orderByOrderId(orderId: Long): Order
+    orderByProductId(productId: Long): [Order]
+    orderGreaterQuantity(quantity: Integer): [Order]
+    allOrder: [Order]
+}
+
+type Order {
+    orderId: Long
+    productId: Long
+    quantity: Integer
+}
