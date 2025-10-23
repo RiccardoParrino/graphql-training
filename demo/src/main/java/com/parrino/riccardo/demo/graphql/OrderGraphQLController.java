@@ -2,6 +2,7 @@ package com.parrino.riccardo.demo.graphql;
 
 import java.util.List;
 
+import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 
@@ -17,7 +18,7 @@ public class OrderGraphQLController {
     );
 
     @QueryMapping
-    public Order orderByOrderId(Long orderId) {
+    public Order orderByOrderId(@Argument Long orderId) {
         return orders
             .stream()
             .filter(order -> order.getOrderId() == orderId)
@@ -26,7 +27,7 @@ public class OrderGraphQLController {
     }
 
     @QueryMapping
-    public List<Order> orderByProductId(Long productId) {
+    public List<Order> orderByProductId(@Argument Long productId) {
         return orders
             .stream()
             .filter(order -> order.getProductId() == productId)

@@ -1,12 +1,12 @@
 type Query {
-    orderByOrderId(orderId: Long): Order
-    orderByProductId(productId: Long): [Order]
-    orderGreaterQuantity(quantity: Integer): [Order]
+    orderByOrderId(orderId: ID!): Order
+    orderByProductId(productId: ID!): [Order]
+    orderGreaterQuantity(quantity: Int): [Order]
     allOrder: [Order]
 }
 
 type Order {
-    orderId: Long
-    productId: Long
-    quantity: Integer
+    orderId: ID!
+    productId: ID!
+    quantity: Int
 }
